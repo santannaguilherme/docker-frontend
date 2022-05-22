@@ -2,7 +2,6 @@ import { HttpParams } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { History } from '../../models/history';
 import { HistoryApiStoreService } from '../../services/history-api/history-api-store.service';
 
 @Component({
@@ -22,15 +21,11 @@ export class HistoryComponent implements OnInit {
     this.historyList = []
     this.historyList = await this.historyService.listHistory()
   }
-  
-  displayedColumns = ['id', 'worker', 'machine', 'date', 'edit','delete'];
+
+  displayedColumns = ['ShortId', 'Name', 'Image', 'State', 'CreatedAt','delete'];
 
   newHistory() {
-    this.route.navigateByUrl('/add-history');
-  }
-  editHistory(id: number) {
-    this.route.navigate(['/edit-history'], { queryParams: { id: id } });
-
+    this.route.navigateByUrl('/create-container');
   }
   deleteHistory(id:number){
     this.historyService.deleteHistoryById(id);

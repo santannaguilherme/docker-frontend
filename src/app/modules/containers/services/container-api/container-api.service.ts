@@ -1,25 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { History } from '../../models/history';
+import { Container } from '../../models/container';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
-export class HistoryApiService {
-  url = environment.api + '/History';
+export class ContainerApiService {
+  url = environment.api + '/Container';
   constructor(private http: HttpClient) {}
 
-  getHistory() {
+  getContainer() {
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'Cache-Control': 'no-cache',
     });
     let options = { headers: httpHeaders };
-    return this.http.get<History[]>(this.url,options);
+    return this.http.get<Container[]>(this.url,options);
   }
-  getHistoryById(id: number) {
+  getContainerById(id: number) {
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'Cache-Control': 'no-cache',
@@ -27,30 +27,23 @@ export class HistoryApiService {
     let options = { headers: httpHeaders };
     let params = new HttpParams();
     params = params.append('id', id);
-    return this.http.get<History>(this.url + '/'+id);
+    return this.http.get<Container>(this.url + '/'+id);
   }
-  saveHistory(history: History): Observable<History> {
+  saveContainer(container: Container): Observable<Container> {
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'Cache-Control': 'no-cache',
     });
     let options = { headers: httpHeaders };
-    return this.http.post<History>(this.url, history, options);
+    return this.http.post<Container>(this.url, container, options);
   }
-  editHistory(history: History): Observable<History> {
+
+  deleteContainer(id: number): Observable<Container> {
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'Cache-Control': 'no-cache',
     });
     let options = { headers: httpHeaders };
-    return this.http.put<History>(this.url + '/'+history.id, history, options);
-  }
-  deleteHistory(id: number): Observable<History> {
-    let httpHeaders = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Cache-Control': 'no-cache',
-    });
-    let options = { headers: httpHeaders };
-    return this.http.delete<History>(this.url + '/'+id, options);
+    return this.http.delete<Container>(this.url + '/'+id, options);
   }
 }

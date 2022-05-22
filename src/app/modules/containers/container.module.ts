@@ -8,24 +8,21 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
-import { HistoryComponent } from './components/history-component/history.component';
+import { ContainerComponent } from './components/container-component/container.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
-import { HistoryCreateComponent } from './components/history-create-component/historyCreate.component';
-import { HistoryEditComponent } from './components/history-edit-component/historyEdit.component';
+import { ContainerCreateComponent } from './components/container-create-component/containerCreate.component';
 
 
 @NgModule({
   declarations: [
-    HistoryComponent,
-    HistoryCreateComponent,
-    HistoryEditComponent
+    ContainerComponent,
+    ContainerCreateComponent,
   ],
 
   exports: [
-    HistoryComponent,
-    HistoryCreateComponent, 
-    HistoryEditComponent
+    ContainerComponent,
+    ContainerCreateComponent,
   ],
   imports: [
     CommonModule,
@@ -43,4 +40,4 @@ import { HistoryEditComponent } from './components/history-edit-component/histor
   ],
   providers: [DatePipe],
 })
-export class HistoryModule { }
+export class ContainerModule { }

@@ -1,19 +1,19 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { History } from '../../models/history';
-import { HistoryApiStoreService } from '../../services/history-api/history-api-store.service';
+import { Container } from '../../models/container';
+import { ContainerApiStoreService } from '../../services/container-api/container-api-store.service';
 
 @Component({
-  selector: 'app-historyCreate',
-  templateUrl: './historyCreate.component.html',
-  styleUrls: ['./historyCreate.component.css'],
+  selector: 'app-containerCreate',
+  templateUrl: './containerCreate.component.html',
+  styleUrls: ['./containerCreate.component.css'],
 })
-export class HistoryCreateComponent implements OnInit {
-  historyList: any;
+export class ContainerCreateComponent implements OnInit {
+  containerList: any;
   pageForm: FormGroup;
   constructor(
-    private historyService: HistoryApiStoreService,
+    private containerService: ContainerApiStoreService,
     private fb: FormBuilder,
     private route: Router
   ) {
@@ -25,11 +25,11 @@ export class HistoryCreateComponent implements OnInit {
   }
   dataSource = [];
   ngOnInit(): void {}
-  postHistory() {
+  postContainer() {
     console.log(this.pageForm.value);
-    const history = this.pageForm.value as History;
-    this.historyService
-      .saveHistory(history)
+    const container = this.pageForm.value as Container;
+    this.containerService
+      .saveContainer(container)
       .subscribe((data) => this.route.navigateByUrl('/'));
     this.route.navigateByUrl('/');
   }
