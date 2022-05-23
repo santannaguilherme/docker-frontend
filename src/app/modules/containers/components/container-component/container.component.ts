@@ -26,7 +26,7 @@ export class ContainerComponent implements OnInit {
   displayedColumns = ['ShortId', 'Name', 'Image', 'State', 'CreatedAt','delete'];
 
   newContainer() {
-    this.route.navigateByUrl('/add-container');
+    this.route.navigateByUrl('/create-container');
   }
   editContainer(id: number) {
     this.route.navigate(['/edit-container'], { queryParams: { id: id } });

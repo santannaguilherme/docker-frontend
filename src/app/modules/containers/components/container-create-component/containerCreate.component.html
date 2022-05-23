@@ -1,16 +1,27 @@
 <form class="form" [formGroup]="pageForm">
   <h2>Adicionar</h2>
   <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Nome</mat-label>
-    <input matInput type="text" formControlName="worker" placeholder="Nome" />
+    <mat-label>Image:tag</mat-label>
+    <input matInput type="text" formControlName="worker" placeholder="Image" />
   </mat-form-field>
   <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Máquina</mat-label>
-    <input matInput type="text" formControlName="machine" placeholder="Nome" />
+    <mat-label>Name:</mat-label>
+    <input matInput type="text" formControlName="name" placeholder="Name" />
   </mat-form-field>
   <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Data</mat-label>
-    <input matInput type="date" formControlName="dateTime" placeholder="Nome" />
+    <mat-label>Port (external:internal):</mat-label>
+    <input matInput type="text" formControlName="port" placeholder="Port" />
   </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Environment:</mat-label>
+    <input
+      matInput
+      type="text"
+      formControlName="environment"
+      placeholder="Environment"
+    />
+  </mat-form-field>
+  <button class="button" mat-raised-button (click)="postContainer()">
+    Enviar
+  </button>
 </form>
-<button class="button" mat-raised-button (click)="postContainer()">Enviar</button>
