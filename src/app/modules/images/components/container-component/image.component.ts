@@ -23,21 +23,21 @@ export class ImageComponent implements OnInit {
     this.imageList = await this.imageService.listImage()
   }
 
-  displayedColumns = ['ShortId', 'Name', 'Tag', 'CreatedAt','delete'];
+  displayedColumns = ['ShortId', 'Name', 'Tag', 'CreatedAt', 'delete'];
 
   newImage() {
     this.route.navigateByUrl('/pull-image');
   }
-  deleteImage(id:number){
-    this.imageService.deleteImageById(id);
-    this.ngOnInit()
+  deleteImage(id: number) {
+    this.imageService.deleteImageById(id).then(() => { this.ngOnInit() });
   }
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.imageList = []
     console.log('destuiru')
   }
 
-  deleteAllImages(){
+  deleteAllImages() {
+    this.imageService.deleteImages().then(() => { this.ngOnInit() });
 
   }
 }

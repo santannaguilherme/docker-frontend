@@ -24,6 +24,9 @@ export class ContainerApiStoreService extends Store<Container[]> {
     return this.api.getContainerById(id).toPromise();
   }
   deleteContainerById(id: number) {
-    return this.api.deleteContainer(id).subscribe();
+    return this.api.deleteContainer(id);
+  }
+  deleteAll() {
+    return this.api.deleteAll();
   }
 }

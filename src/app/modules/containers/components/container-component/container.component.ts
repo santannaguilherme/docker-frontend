@@ -23,7 +23,7 @@ export class ContainerComponent implements OnInit {
     this.containerList = await this.containerService.listContainer()
   }
 
-  displayedColumns = ['ShortId', 'Name', 'Image', 'State', 'CreatedAt','delete'];
+  displayedColumns = ['ShortId', 'Name', 'Image', 'State', 'CreatedAt', 'delete'];
 
   newContainer() {
     this.route.navigateByUrl('/create-container');
@@ -32,12 +32,17 @@ export class ContainerComponent implements OnInit {
     this.route.navigate(['/edit-container'], { queryParams: { id: id } });
 
   }
-  deleteContainer(id:number){
-    this.containerService.deleteContainerById(id);
-    this.ngOnInit()
+  deleteContainer(id: number) {
+    this.containerService.deleteContainerById(id).then(() => { this.ngOnInit() });
+
   }
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.containerList = []
     console.log('destuiru')
+  }
+
+  deleteAll() {
+    this.containerService.deleteAll().then(() => { this.ngOnInit() });
+
   }
 }

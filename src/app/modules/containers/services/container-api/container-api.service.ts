@@ -29,21 +29,30 @@ export class ContainerApiService {
     params = params.append('id', id);
     return this.http.get<Container>(this.url + '/'+id);
   }
-  saveContainer(container: Container): Observable<Container> {
+  saveContainer(container: Container): Promise<Container> {
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'Cache-Control': 'no-cache',
     });
     let options = { headers: httpHeaders };
-    return this.http.post<Container>(this.url, container);
+    return this.http.post<Container>(this.url, container).toPromise();
   }
 
-  deleteContainer(id: number): Observable<Container> {
+  deleteContainer(id: number): Promise<Container> {
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'Cache-Control': 'no-cache',
     });
     let options = { headers: httpHeaders };
-    return this.http.delete<Container>(this.url + '/'+id);
+    return this.http.delete<Container>(this.url + '/'+id).toPromise();
+  }
+
+  deleteAll():Promise<Container> {
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache',
+    });
+    let options = { headers: httpHeaders };
+    return this.http.delete<Container>(this.url).toPromise();
   }
 }

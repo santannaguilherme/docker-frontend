@@ -25,13 +25,12 @@ export class ContainerCreateComponent implements OnInit {
     });
   }
   dataSource = [];
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   postContainer() {
     console.log(this.pageForm.value);
     const container = this.pageForm.value as Container;
     this.containerService
-      .saveContainer(container)
-      .subscribe((data) => this.route.navigateByUrl('/'));
+      .saveContainer(container).then(() => { this.route.navigateByUrl('/') });
     this.route.navigateByUrl('/');
   }
 }

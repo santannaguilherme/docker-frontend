@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class ImageApiService {
+  
   url = environment.api + '/Images';
   constructor(private http: HttpClient) {}
 
@@ -29,21 +30,29 @@ export class ImageApiService {
     params = params.append('id', id);
     return this.http.get<Image>(this.url + '/'+id);
   }
-  saveImage(image: Image): Observable<Image> {
+  saveImage(image: Image): Promise<Image> {
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'Cache-Control': 'no-cache',
     });
     let options = { headers: httpHeaders };
-    return this.http.post<Image>(this.url, image);
+    return this.http.post<Image>(this.url, image).toPromise();
   }
 
-  deleteImage(id: number): Observable<Image> {
+  deleteImage(id: number): Promise<Image> {
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'Cache-Control': 'no-cache',
     });
     let options = { headers: httpHeaders };
-    return this.http.delete<Image>(this.url + '/'+id);
+    return this.http.delete<Image>(this.url + '/'+id).toPromise();
+  }
+  deleteImages():Promise<Image> {
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache',
+    });
+    let options = { headers: httpHeaders };
+    return this.http.delete<Image>(this.url).toPromise();
   }
 }

@@ -23,13 +23,11 @@ export class ImageCreateComponent implements OnInit {
     });
   }
   dataSource = [];
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   postImage() {
     console.log(this.pageForm.value);
     const image = this.pageForm.value as Image;
     this.imageService
-      .saveImage(image)
-      .subscribe((data) => this.route.navigateByUrl('/'));
-    this.route.navigateByUrl('/');
+      .saveImage(image).then(() => { this.route.navigateByUrl('/show-images') });
   }
 }

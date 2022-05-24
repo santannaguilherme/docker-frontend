@@ -24,6 +24,9 @@ export class ImageApiStoreService extends Store<Image[]> {
     return this.api.getImageById(id).toPromise();
   }
   deleteImageById(id: number) {
-    return this.api.deleteImage(id).subscribe();
+    return this.api.deleteImage(id);
+  }
+  deleteImages() {
+    return this.api.deleteImages();
   }
 }
