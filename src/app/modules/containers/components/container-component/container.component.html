@@ -28,7 +28,9 @@
       <ng-container matColumnDef="delete">
         <th mat-header-cell *matHeaderCellDef>Apagar</th>
         <td mat-cell *matCellDef="let element">
-          <mat-icon (click)="deleteContainer(element.Id)" aria-hidden="false">delete</mat-icon>
+          <mat-icon (click)="deleteContainer(element.Id)" aria-hidden="false"
+            >delete</mat-icon
+          >
         </td>
       </ng-container>
 
@@ -37,11 +39,20 @@
     </table>
   </div>
 
-  <div class="button">
-    <button mat-fab (click)="newContainer()" aria-label="Example icon button with a home icon">
+  <div>
+    <button
+      class="button"
+      mat-fab
+      (click)="newContainer()"
+      aria-label="Example icon button with a home icon"
+    >
       +
     </button>
-    <button mat-fab aria-label="Example icon button with a home icon">
+    <button
+      class="button"
+      mat-fab
+      aria-label="Example icon button with a home icon"
+    >
       <mat-icon (click)="deleteAll()" aria-hidden="false">delete</mat-icon>
     </button>
   </div>

@@ -23,7 +23,9 @@
       <ng-image matColumnDef="delete">
         <th mat-header-cell *matHeaderCellDef>Apagar</th>
         <td mat-cell *matCellDef="let element">
-          <mat-icon (click)="deleteImage(element.Id)" aria-hidden="false">delete</mat-icon>
+          <mat-icon (click)="deleteImage(element.Id)" aria-hidden="false"
+            >delete</mat-icon
+          >
         </td>
       </ng-image>
 
@@ -32,12 +34,23 @@
     </table>
   </div>
 
-  <div class="button">
-    <button mat-fab (click)="newImage()" aria-label="Example icon button with a home icon">
+  <div>
+    <button
+      class="button"
+      mat-fab
+      (click)="newImage()"
+      aria-label="Example icon button with a home icon"
+    >
       +
     </button>
-    <button mat-fab aria-label="Example icon button with a home icon">
-      <mat-icon (click)="deleteAllImages()" aria-hidden="false">delete</mat-icon>
+    <button
+      class="button"
+      mat-fab
+      aria-label="Example icon button with a home icon"
+    >
+      <mat-icon (click)="deleteAllImages()" aria-hidden="false"
+        >delete</mat-icon
+      >
     </button>
   </div>
 </div>
