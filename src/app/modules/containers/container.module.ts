@@ -13,6 +13,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { ContainerCreateComponent } from './components/container-create-component/containerCreate.component';
 
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { ContainerCreateComponent } from './components/container-create-componen
     MatToolbarModule,
     MatCardModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule
   ],
   providers: [DatePipe],
 })

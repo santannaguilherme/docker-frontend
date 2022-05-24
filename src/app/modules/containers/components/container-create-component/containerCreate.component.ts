@@ -12,6 +12,7 @@ import { ContainerApiStoreService } from '../../services/container-api/container
 export class ContainerCreateComponent implements OnInit {
   containerList: any;
   pageForm: FormGroup;
+  isFetching = false;
   constructor(
     private containerService: ContainerApiStoreService,
     private fb: FormBuilder,
@@ -29,8 +30,8 @@ export class ContainerCreateComponent implements OnInit {
   postContainer() {
     console.log(this.pageForm.value);
     const container = this.pageForm.value as Container;
+    this.isFetching =true;
     this.containerService
       .saveContainer(container).then(() => { this.route.navigateByUrl('/') });
-    this.route.navigateByUrl('/');
   }
 }

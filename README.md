@@ -1,4 +1,4 @@
-# Smarttrack
+# Docker orchestrator
 
 Requesitos:
 Node >= 16 (https://nodejs.org/en/download/)
