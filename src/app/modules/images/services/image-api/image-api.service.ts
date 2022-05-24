@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class ImageApiService {
-  url = environment.api + '/Image';
+  url = environment.api + '/Images';
   constructor(private http: HttpClient) {}
 
   getImage() {
@@ -17,7 +17,7 @@ export class ImageApiService {
       'Cache-Control': 'no-cache',
     });
     let options = { headers: httpHeaders };
-    return this.http.get<Image[]>(this.url,options);
+    return this.http.get<Image[]>(this.url);
   }
   getImageById(id: number) {
     let httpHeaders = new HttpHeaders({
@@ -35,7 +35,7 @@ export class ImageApiService {
       'Cache-Control': 'no-cache',
     });
     let options = { headers: httpHeaders };
-    return this.http.post<Image>(this.url, image, options);
+    return this.http.post<Image>(this.url, image);
   }
 
   deleteImage(id: number): Observable<Image> {
@@ -44,6 +44,6 @@ export class ImageApiService {
       'Cache-Control': 'no-cache',
     });
     let options = { headers: httpHeaders };
-    return this.http.delete<Image>(this.url + '/'+id, options);
+    return this.http.delete<Image>(this.url + '/'+id);
   }
 }

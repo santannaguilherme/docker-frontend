@@ -1,7 +1,7 @@
 export interface Container {
-  ShortId: any;
-  Name: any;
+  Id: any;
+  Names: any;
   Image: any;
   State: any;
-  CreatedAt: any;
+  Created: any;
 }

@@ -18,9 +18,10 @@ export class ContainerCreateComponent implements OnInit {
     private route: Router
   ) {
     this.pageForm = this.fb.group({
-      worker: [''],
-      machine: [''],
-      dateTime: [''],
+      image: [''],
+      name: [''],
+      port: [''],
+      env: [''],
     });
   }
   dataSource = [];

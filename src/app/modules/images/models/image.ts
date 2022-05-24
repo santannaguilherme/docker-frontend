@@ -1,6 +1,6 @@
 export interface Image {
-  ShortId: any;
+  Id: any;
   Name: any;
   Tag: any;
-  CreatedAt: any;
+  Created: any;
 }

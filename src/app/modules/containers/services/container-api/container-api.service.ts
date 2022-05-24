@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class ContainerApiService {
-  url = environment.api + '/Container';
+  url = environment.api + '/Containers';
   constructor(private http: HttpClient) {}
 
   getContainer() {
@@ -17,7 +17,7 @@ export class ContainerApiService {
       'Cache-Control': 'no-cache',
     });
     let options = { headers: httpHeaders };
-    return this.http.get<Container[]>(this.url,options);
+    return this.http.get<Container[]>(this.url);
   }
   getContainerById(id: number) {
     let httpHeaders = new HttpHeaders({
@@ -35,7 +35,7 @@ export class ContainerApiService {
       'Cache-Control': 'no-cache',
     });
     let options = { headers: httpHeaders };
-    return this.http.post<Container>(this.url, container, options);
+    return this.http.post<Container>(this.url, container);
   }
 
   deleteContainer(id: number): Observable<Container> {
@@ -44,6 +44,6 @@ export class ContainerApiService {
       'Cache-Control': 'no-cache',
     });
     let options = { headers: httpHeaders };
-    return this.http.delete<Container>(this.url + '/'+id, options);
+    return this.http.delete<Container>(this.url + '/'+id);
   }
 }

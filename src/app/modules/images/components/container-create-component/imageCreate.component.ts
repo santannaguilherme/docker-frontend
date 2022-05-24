@@ -18,9 +18,8 @@ export class ImageCreateComponent implements OnInit {
     private route: Router
   ) {
     this.pageForm = this.fb.group({
-      worker: [''],
-      machine: [''],
-      dateTime: [''],
+      tag: [''],
+      name: [''],
     });
   }
   dataSource = [];
