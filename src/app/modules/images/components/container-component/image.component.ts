@@ -36,4 +36,8 @@ export class ImageComponent implements OnInit {
     this.imageList = []
     console.log('destuiru')
   }
+
+  deleteAllImages(){
+
+  }
 }
