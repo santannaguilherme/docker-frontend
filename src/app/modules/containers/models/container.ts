@@ -3,4 +3,5 @@ export interface Container {
   Name: any;
   Image: any;
   State: any;
+  CreatedAt: any;
 }

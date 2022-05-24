@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -10,22 +10,19 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
-import { MeasurementsComponent } from './components/measurement-component/measurements.component';
-import { MeasurementsCreateComponent } from './components/measurement-create-component/measurementsCreate.component';
-import { MeasurementsEditComponent } from './components/measurement-edit-component/measurementsEdit.component';
+import { ImageComponent } from './components/container-component/image.component';
+import { ImageCreateComponent } from './components/container-create-component/imageCreate.component';
 
 
 @NgModule({
   declarations: [
-    MeasurementsComponent,
-    MeasurementsCreateComponent,
-    MeasurementsEditComponent
+    ImageComponent,
+    ImageCreateComponent,
   ],
 
   exports: [
-    MeasurementsComponent,
-    MeasurementsCreateComponent, 
-    MeasurementsEditComponent
+    ImageComponent,
+    ImageCreateComponent,
   ],
   imports: [
     CommonModule,
@@ -41,6 +38,6 @@ import { MeasurementsEditComponent } from './components/measurement-edit-compone
     MatTableModule,
     MatIconModule
   ],
-  providers: [],
+  providers: [DatePipe],
 })
-export class MeasurementsModule { }
+export class ImageModule { }
